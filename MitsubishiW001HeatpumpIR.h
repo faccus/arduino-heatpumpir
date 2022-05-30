@@ -38,7 +38,7 @@
 #define MITSUBISHI_W001CP_SWING_AUTO 	 0x4
 
 
-class MitsubishiW001CPHeatpumpIR: public HeatpumpIR
+class MitsubishiW001HeatpumpIR: public HeatpumpIR
 {
   public: // Cannot create generic MitsubishiHeavy heatpump instances
     MitsubishiW001CPHeatpumpIR();
