@@ -1,6 +1,6 @@
-#include <MitsubishiW001HeatpumpIR.h>
+#include <MitsubishiW001CPHeatpumpIR.h>
 
-MitsubishiW001HeatpumpIR::MitsubishiW001HeatpumpIR() : HeatpumpIR()
+MitsubishiW001CPHeatpumpIR::MitsubishiW001CPHeatpumpIR() : HeatpumpIR()
 {
   static const char model[] PROGMEM = "mitsubishi_w001";
   static const char info[]  PROGMEM = "{\"mdl\":\"mitsubishi_w001\",\"dn\":\"Mitsubishi W001\",\"mT\":18,\"xT\":30,\"fs\":3}";
@@ -9,7 +9,7 @@ MitsubishiW001HeatpumpIR::MitsubishiW001HeatpumpIR() : HeatpumpIR()
   _info = info;
 }
 
-void MitsubishiW001HeatpumpIR::send(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingVCmd, uint8_t swingHCmd);
+void MitsubishiW001CPHeatpumpIR::send(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingVCmd, uint8_t swingHCmd);
 {
   // Sensible defaults for the heat pump mode
   uint8_t powerMode     = MITSUBISHI_W001CP_ON;
@@ -90,7 +90,7 @@ void MitsubishiW001HeatpumpIR::send(IRSender& IR, uint8_t powerModeCmd, uint8_t 
 }
 
 
-void MitsubishiW001HeatpumpIR::sendMitsubishiW001Heatpump(IRSender& IR, uint8_t powerMode, uint8_t operatingMode, uint8_t fanSpeed, uint8_t temperature, uint8_t swingV)
+void MitsubishiW001CPHeatpumpIR::sendMitsubishiW001CPHeatpump(IRSender& IR, uint8_t powerMode, uint8_t operatingMode, uint8_t fanSpeed, uint8_t temperature, uint8_t swingV)
 {
   uint8_t MitsubishiW001CPTemplate[] = { 0x23, 0xCB, 0x26, 0x21, 0x0, 0x40, 0x52, 0x35, 0x4, 0x0, 0x0, 0xBF, 0xAD, 0xCA, 0xFB, 0xFF, 0xFF};
   //                                        0     1     2     3    4     5     6     7    8    9   10    11    12    13    14    15    16
