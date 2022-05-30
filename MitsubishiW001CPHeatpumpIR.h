@@ -38,16 +38,16 @@
 #define MITSUBISHI_W001CP_SWING_AUTO 	 0x4
 
 
-class MitsubishiW001HeatpumpIR: public HeatpumpIR
+class MitsubishiW001CPHeatpumpIR: public HeatpumpIR
 {
   public: // Cannot create generic MitsubishiHeavy heatpump instances
-    MitsubishiW001HeatpumpIR();
+    MitsubishiW001CPHeatpumpIR();
 
     void send(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingVCmd, uint8_t swingHCmd);
     
 
   private:
-    void sendMitsubishiW001Heatpump(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingV);
+    void MitsubishiW001CPHeatpumpIR(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingV);
 };
 
 #endif
