@@ -41,13 +41,13 @@
 class MitsubishiW001HeatpumpIR: public HeatpumpIR
 {
   public: // Cannot create generic MitsubishiHeavy heatpump instances
-    MitsubishiW001CPHeatpumpIR();
+    MitsubishiW001HeatpumpIR();
 
     void send(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingVCmd, uint8_t swingHCmd);
     
 
   private:
-    void sendMitsubishiW001CPHeatpump(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingV);
+    void sendMitsubishiW001Heatpump(IRSender& IR, uint8_t powerModeCmd, uint8_t operatingModeCmd, uint8_t fanSpeedCmd, uint8_t temperatureCmd, uint8_t swingV);
 };
 
 #endif
