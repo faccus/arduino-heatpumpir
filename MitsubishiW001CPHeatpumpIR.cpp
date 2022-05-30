@@ -104,12 +104,12 @@ void MitsubishiW001CPHeatpumpIR::sendMitsubishiW001CPHeatpump(IRSender& IR, uint
   MitsubishiW001CPTemplate[7] = (swingV << 4) | fanSpeed;
 
   // There is no checksum, but some bytes are inverted
-  MitsubishiHeavyFDTCTemplate[11] = 0xFF ^ MitsubishiHeavyFDTCTemplate[5];
-  MitsubishiHeavyFDTCTemplate[12] = 0xFF ^ MitsubishiHeavyFDTCTemplate[6];
-  MitsubishiHeavyFDTCTemplate[13] = 0xFF ^ MitsubishiHeavyFDTCTemplate[7];
-  MitsubishiHeavyFDTCTemplate[14] = 0xFF ^ MitsubishiHeavyFDTCTemplate[8];
-  MitsubishiHeavyFDTCTemplate[15] = 0xFF ^ MitsubishiHeavyFDTCTemplate[9];
-  MitsubishiHeavyFDTCTemplate[16] = 0xFF ^ MitsubishiHeavyFDTCTemplate[10];
+  MitsubishiW001CPTemplate[11] = 0xFF ^ MitsubishiW001CPTemplate[5];
+  MitsubishiW001CPTemplate[12] = 0xFF ^ MitsubishiW001CPTemplate[6];
+  MitsubishiW001CPTemplate[13] = 0xFF ^ MitsubishiW001CPTemplate[7];
+  MitsubishiW001CPTemplate[14] = 0xFF ^ MitsubishiW001CPTemplate[8];
+  MitsubishiW001CPTemplate[15] = 0xFF ^ MitsubishiW001CPTemplate[9];
+  MitsubishiW001CPTemplate[16] = 0xFF ^ MitsubishiW001CPTemplate[10];
 
   // 38 kHz PWM frequency
   IR.setFrequency(38);
@@ -119,8 +119,8 @@ void MitsubishiW001CPHeatpumpIR::sendMitsubishiW001CPHeatpump(IRSender& IR, uint
   IR.space(MITSUBISHI_W001CP_HDR_SPACE);
 
   // Data
-  for (uint8_t i=0; i<sizeofitsubishiHeavyFDTCTemplate); i++) {
-    IR.sendIRbyte(itsubishiHeavyFDTCTemplate[i], MITSUBISHI_W001CP_BIT_MARK, MITSUBISHI_W001CP_ZERO_SPACE, MITSUBISHI_W001CP_ONE_SPACE);
+  for (uint8_t i=0; i<sizeof(MitsubishiW001CPTemplate); i++) {
+    IR.sendIRbyte(MitsubishiW001CPTemplate[i], MITSUBISHI_W001CP_BIT_MARK, MITSUBISHI_W001CP_ZERO_SPACE, MITSUBISHI_W001CP_ONE_SPACE);
   }
 
   // End mark
